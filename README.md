@@ -4,5 +4,4 @@ A repo for notes and examples from taking the JavaScript Fundamentals for ES6 co
 
 ## Variables & Parameters
 
-## Conclusion
 
