@@ -11,5 +11,8 @@
     "expect": false,
     "shallow": false,
     "React": false
+  },
+  "rules": {
+    "max-len": [2, { "code": 120 }]
   }
 }
