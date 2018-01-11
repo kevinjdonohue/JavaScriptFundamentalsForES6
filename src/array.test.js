@@ -252,13 +252,34 @@ describe('Array Tests', () => {
     const numbers = [1, 2, 3, 5, 8, 13, 20, 40, 100];
     const reversedNumbers = [100, 40, 20, 13, 8, 5, 3, 2, 1];
     const numberIsGreaterThan10 = number => number > 10;
+    const numberIsGreaterThan100 = number => number > 100;
 
     // act
     const numberLargerThanTen = numbers.find(numberIsGreaterThan10);
     const anotherNumberLargerThanTen = reversedNumbers.find(numberIsGreaterThan10);
+    const numberIsLargerThanOneHundred = numbers.find(numberIsGreaterThan100);
 
     // assert
     numberLargerThanTen.should.equal(13, 'because 13 is the first value greater than 10');
     anotherNumberLargerThanTen.should.equal(100, 'because 100 is the first value greater than 10');
+    expect(numberIsLargerThanOneHundred).to.equal(undefined);
+  });
+
+  it('should return the index of the first item that qualifies', () => {
+    // arrange
+    const numbers = [1, 2, 3, 5, 8, 13, 20, 40, 100];
+    const reversedNumbers = [100, 40, 20, 13, 8, 5, 3, 2, 1];
+    const numberIsGreaterThan10 = number => number > 10;
+    const numberIsGreaterThan100 = number => number > 100;
+
+    // act
+    const greaterThan10Index = numbers.findIndex(numberIsGreaterThan10);
+    const anotherGreaterThan10Index = reversedNumbers.findIndex(numberIsGreaterThan10);
+    const greaterThan100Index = numbers.findIndex(numberIsGreaterThan100);
+
+    // assert
+    greaterThan10Index.should.equal(5, 'because 13 is the 5th element in the array');
+    anotherGreaterThan10Index.should.equal(0, 'because 100 is the 1st element in the array');
+    greaterThan100Index.should.equal(-1, 'because there are no numbers in the array > 100');
   });
 });
