@@ -13,6 +13,7 @@
     "React": false
   },
   "rules": {
-    "max-len": [2, { "code": 120 }]
+    "max-len": [2, { "code": 120 }],
+    "no-underscore-dangle": [2, { "allowAfterThis": true }]
   }
 }
