@@ -1,10 +1,8 @@
-function sum(...numbers) {
-  let sum = 0;
-  numbers.forEach(item => {
-    sum += item;
+export default function sum(...numbers) {
+  let total = 0;
+  numbers.forEach((item) => {
+    total += item;
   });
 
-  return sum;
+  return total;
 }
-
-export { sum };
