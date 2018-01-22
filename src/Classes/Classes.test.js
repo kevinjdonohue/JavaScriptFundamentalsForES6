@@ -23,7 +23,7 @@ describe('Employee Tests', () => {
     title.should.equal('developer');
   });
 
-  it('name (getter) should retrieve name', () => {
+  it('getters should retrieve name and title', () => {
     // arrange
     const testEmployee = new Employee('ginger', 'tester');
 
@@ -35,7 +35,7 @@ describe('Employee Tests', () => {
     title.should.equal('tester');
   });
 
-  it('name (setter) should assign a new name', () => {
+  it('setter should assign a new name and title', () => {
     // arrange
     const testEmployee = new Employee('bill', 'manager');
 
@@ -47,5 +47,16 @@ describe('Employee Tests', () => {
     const { name, title } = testEmployee;
     name.should.equal('ethan');
     title.should.equal('designer');
+  });
+
+  it('doWork should return paid', () => {
+    // arrange
+    const testEmployee = new Employee('scott', 'developer');
+
+    // act
+    const work = testEmployee.doWork();
+
+    // assert
+    work.should.equal('paid');
   });
 });

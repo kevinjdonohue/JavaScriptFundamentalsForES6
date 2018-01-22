@@ -17,6 +17,10 @@ class Person {
   getName() {
     return this._name;
   }
+
+  doWork() {
+    return 'free';
+  }
 }
 
 // Class Declaration syntax
@@ -36,6 +40,10 @@ class Employee extends Person {
 
   getTitle() {
     return this._title;
+  }
+
+  doWork() {
+    return 'paid';
   }
 }
 
