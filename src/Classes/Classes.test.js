@@ -1,4 +1,4 @@
-import Employee from './Classes';
+import { Person, Employee } from './Classes';
 
 describe('Employee Tests', () => {
   it('getName should return name', () => {
@@ -9,7 +9,7 @@ describe('Employee Tests', () => {
     const name = testEmployee.getName();
 
     // assert
-    name.should.equal('fred');
+    name.should.equal('developer: fred');
   });
 
   it('getTitle should return title', () => {

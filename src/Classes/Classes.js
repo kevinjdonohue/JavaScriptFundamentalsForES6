@@ -45,6 +45,10 @@ class Employee extends Person {
   doWork() {
     return 'paid';
   }
+
+  getName() {
+    return `${this._title}: ${this._name}`;
+  }
 }
 
-export default Employee;
+export { Person, Employee };
