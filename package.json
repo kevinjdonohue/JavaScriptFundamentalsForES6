@@ -10,7 +10,9 @@
     "test:watch": "npm run test -- --watch --watch-extensions js,jsx",
     "lint":
       "./node_modules/.bin/esw --color --format simple-detail 'src/**/*.{js,jsx}' 'test/**/*.{js,jsx}' '*.{js,jsx}'",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "dev": "npm run lint & npm run test",
+    "dev:watch": "npm run lint:watch & npm run test:watch"
   },
   "keywords": [],
   "author": "",
