@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
-    "test":
-      "mocha --require babel-core/register --color --reporter min --require ./test/setup.js ./src/**/*{test,spec}.{js,jsx}",
+    "test": "mocha --require babel-core/register --color --reporter min --require ./test/setup.js ./src/**/*{test,spec}.{js,jsx}",
     "test:watch": "npm run test -- --watch --watch-extensions js,jsx",
-    "lint":
-      "./node_modules/.bin/esw --color --format simple-detail 'src/**/*.{js,jsx}' 'test/**/*.{js,jsx}' '*.{js,jsx}'",
+    "lint": "./node_modules/.bin/esw --color --format simple-detail 'src/**/*.{js,jsx}' 'test/**/*.{js,jsx}' '*.{js,jsx}'",
     "lint:watch": "npm run lint -- --watch",
     "dev": "npm-run-all --parallel lint test",
     "dev:watch": "npm-run-all --parallel lint:watch test:watch"
@@ -25,7 +23,9 @@
         "env",
         {
           "targets": {
-            "browsers": ["last 2 versions"]
+            "browsers": [
+              "last 2 versions"
+            ]
           },
           "debug": false
         }
