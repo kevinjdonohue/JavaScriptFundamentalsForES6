@@ -1,3 +1,4 @@
+import ArrayIterator from '../Iterators/Iterators';
 /* eslint-disable class-methods-use-this */
 
 // Base Class
@@ -51,4 +52,18 @@ class Employee extends Person {
   }
 }
 
-export { Person, Employee };
+class Company {
+  constructor() {
+    this.employees = [];
+  }
+
+  addEmployees(...names) {
+    this.employees = this.employees.concat(names);
+  }
+
+  [Symbol.iterator]() {
+    return new ArrayIterator(this.employees);
+  }
+}
+
+export { Person, Employee, Company };

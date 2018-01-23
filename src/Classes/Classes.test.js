@@ -1,4 +1,4 @@
-import { Person, Employee } from './Classes';
+import { Employee, Company } from './Classes';
 
 describe('Employee Tests', () => {
   it('getName should return name', () => {
@@ -58,5 +58,24 @@ describe('Employee Tests', () => {
 
     // assert
     work.should.equal('paid');
+  });
+});
+
+describe('Company Tests', () => {
+  it('can be built by implementing Symbol.iterator', () => {
+    // arrange
+
+    // act
+    const company = new Company();
+    company.addEmployees('Adam', 'Geoff', 'Borey', 'Kevin');
+
+    /* eslint-disable no-unused-vars, no-restricted-syntax */
+    // assert
+    let count = 0;
+    for (const employee of company) {
+      count += 1;
+    }
+
+    count.should.equal(4);
   });
 });
