@@ -1,5 +1,6 @@
-import ArrayIterator from '../Iterators/Iterators';
-/* eslint-disable class-methods-use-this */
+// import ArrayIterator from '../Iterators/Iterators';
+/* eslint-disable class-methods-use-this, no-restricted-syntax */
+import 'babel-polyfill';
 
 // Base Class
 class Person {
@@ -61,8 +62,12 @@ class Company {
     this.employees = this.employees.concat(names);
   }
 
-  [Symbol.iterator]() {
-    return new ArrayIterator(this.employees);
+  // instead of using the ArrayIterator, we create a generator function instead
+  * [Symbol.iterator]() {
+    // return new ArrayIterator(this.employees);
+    for (const e of this.employees) {
+      yield e;
+    }
   }
 }
 
