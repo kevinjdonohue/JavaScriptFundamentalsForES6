@@ -233,22 +233,40 @@ describe('Array Tests', () => {
   });
 
   describe('Iteration Tests', () => {
-    it('ENTRIES - should return an iterator for the given array', () => {
+    it('ENTRIES - should return an index and value for each item in the given array', () => {
       // arrange
-      const iterator = fruits.entries();
+      const entries = fruits.entries();
       const expectedFirstValue = [0, 'Apple'];
       const expectedSecondValue = [1, 'Banana'];
       const expectedThirdValue = [2, 'Pear'];
 
       // act
-      const actualFirstValue = iterator.next().value;
-      const actualSecondValue = iterator.next().value;
-      const actualThirdValue = iterator.next().value;
+      const actualFirstValue = entries.next().value;
+      const actualSecondValue = entries.next().value;
+      const actualThirdValue = entries.next().value;
 
       // assert
       actualFirstValue.should.have.members(expectedFirstValue);
       actualSecondValue.should.have.members(expectedSecondValue);
       actualThirdValue.should.have.members(expectedThirdValue);
+    });
+
+    it('KEYS - should return the index for each item in the given array', () => {
+      // arrange
+      const keys = fruits.keys();
+      const expectedFirstKey = 0;
+      const expectedSecondKey = 1;
+      const expectedThirdKey = 2;
+
+      // act
+      const actualFirstKey = keys.next().value;
+      const actualSecondKey = keys.next().value;
+      const actualThirdKey = keys.next().value;
+
+      // assert
+      actualFirstKey.should.equal(expectedFirstKey);
+      actualSecondKey.should.equal(expectedSecondKey);
+      actualThirdKey.should.equal(expectedThirdKey);
     });
 
     it('EVERY - should return true if all items in the array pass the test', () => {
@@ -335,8 +353,6 @@ describe('Array Tests', () => {
       // assert
       copyOfFruits.should.have.length(3, 'because it is a copy of the fruits array');
     });
-
-    // TODO:  keys
 
     it('MAP - should return a new array with contents based on the given function', () => {
       // arrange
