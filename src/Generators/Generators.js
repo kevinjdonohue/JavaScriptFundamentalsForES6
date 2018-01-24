@@ -2,14 +2,14 @@
 
 export function* range(startValue, endValue) {
   for (let i = startValue; i <= endValue; i += 1) {
-    console.log(`i: ${i}`);
+    // console.log(`i: ${i}`);
     yield i;
   }
 }
 
 export function* filter(items, predicate) {
   for (const item of items) {
-    console.log('filter', item);
+    // console.log('filter', item);
     if (predicate(item)) {
       yield item;
     }

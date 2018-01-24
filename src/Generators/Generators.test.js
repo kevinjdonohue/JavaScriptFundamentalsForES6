@@ -19,10 +19,10 @@ describe('Generators Tests', () => {
     //   next = iterator.next();
     // }
 
-    console.log('next');
+    // console.log('next');
     for (const n of range(1, 4)) {
       sum += n;
-      console.log('next');
+      // console.log('next');
     }
 
     // assert
