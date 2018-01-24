@@ -17,4 +17,27 @@ describe('Set Tests', () => {
     // assert
     set.size.should.equal(1);
   });
+
+  // it('ADD - should only add an object once; prevent duplicates', () => {
+  //   // arrange
+  //   const set = new Set();
+  //   const kevin = { firstName: 'kevin', lastName: 'donohue' };
+  //   const kevin2 = { firstName: 'kevin', lastName: 'donohue' };
+
+  //   // act
+  //   set.add(kevin);
+  //   set.add(kevin2);
+
+  //   // assert
+  //   set.size.should.equal(1);
+  // });
+
+  // it('CTOR - should add all items from a given array of items', () => {
+  //   // arrange & act
+  //   const array = [1, 2, 3, 5, 8, 13, 20, 40, 100];
+  //   const set = new Set(array);
+
+  //   // assert
+  //   set.has(100).should.
+  // });
 });
