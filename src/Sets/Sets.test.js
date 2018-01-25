@@ -13,6 +13,8 @@ describe('Set Tests', () => {
 
     // act
     set.add('someValue');
+    set.add('someValue');
+    set.add('someValue');
 
     // assert
     set.size.should.equal(1);
@@ -32,12 +34,26 @@ describe('Set Tests', () => {
   //   set.size.should.equal(1);
   // });
 
-  // it('CTOR - should add all items from a given array of items', () => {
-  //   // arrange & act
-  //   const array = [1, 2, 3, 5, 8, 13, 20, 40, 100];
-  //   const set = new Set(array);
+  /* eslint-disable no-console */
 
-  //   // assert
-  //   set.has(100).should.
-  // });
+  it('HAS - should determine whether an item is present in the set', () => {
+    // arrange & act
+    const array = [1, 2, 3, 5, 8, 13, 20, 40, 100];
+    const set = new Set(array);
+
+    // assert
+    set.has(100).should.equal(true);
+  });
+
+  it('ENTRIES - should return all of the entries in the set', () => {
+    // arrange
+    const names = ['Kevin', 'Kim', 'Chris', 'Kate'];
+    const set = new Set(names);
+
+    // act
+    const entries = set.entries();
+
+    // assert
+    entries.size.should.equal(4);
+  });
 });
