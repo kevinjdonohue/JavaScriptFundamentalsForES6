@@ -1,4 +1,12 @@
+/* eslint-disable no-console */
+
 describe('Set Tests', () => {
+  let arrayOfNumbers;
+
+  beforeEach(() => {
+    arrayOfNumbers = [1, 2, 3, 5, 8, 13, 20, 40, 100];
+  });
+
   it('should contain zero items when constructed', () => {
     // arrange & act
     const set = new Set();
@@ -20,40 +28,83 @@ describe('Set Tests', () => {
     set.size.should.equal(1);
   });
 
-  // it('ADD - should only add an object once; prevent duplicates', () => {
-  //   // arrange
-  //   const set = new Set();
-  //   const kevin = { firstName: 'kevin', lastName: 'donohue' };
-  //   const kevin2 = { firstName: 'kevin', lastName: 'donohue' };
+  it('ADD - should only add an object once; prevent duplicates', () => {
+    // arrange
+    const set = new Set();
+    const kevin = 'This is an error message.';
+    const kevin2 = 'This is another error message.';
+    const kevin3 = 'This is an error message.';
 
-  //   // act
-  //   set.add(kevin);
-  //   set.add(kevin2);
+    // act
+    set.add(kevin);
+    set.add(kevin2);
+    set.add(kevin3);
 
-  //   // assert
-  //   set.size.should.equal(1);
-  // });
+    // assert
+    set.size.should.equal(2);
+  });
 
-  /* eslint-disable no-console */
+  it('CLEAR - should remove all of the elements from the set', () => {
+    // arrange
+    const set = new Set(arrayOfNumbers);
+
+    // act
+    set.size.should.equal(9);
+    set.clear();
+
+    // assert
+    set.size.should.equal(0);
+  });
+
+  it('DELETE - should delete a given value from the set', () => {
+    // arrange
+    const set = new Set(arrayOfNumbers);
+
+    // act
+    const removedOneHundred = set.delete(100);
+    const didntRemoveFour = set.delete(4);
+
+    // assert
+    removedOneHundred.should.equal(true);
+    didntRemoveFour.should.equal(false);
+  });
+
+  it('ENTRIES - should return first value from set by calling .next().value', () => {
+    // arrange
+    const names = ['Kevin', 'Kim', 'Chris', 'Kate'];
+    const set = new Set(names);
+    const expectedFirstValue = ['Kevin', 'Kevin'];
+
+    // act
+    const entries = set.entries();
+    const firstValue = entries.next().value;
+
+    // assert
+    firstValue.should.have.members(expectedFirstValue);
+  });
+
+  // TODO:  forEach
 
   it('HAS - should determine whether an item is present in the set', () => {
     // arrange & act
-    const array = [1, 2, 3, 5, 8, 13, 20, 40, 100];
-    const set = new Set(array);
+    const set = new Set(arrayOfNumbers);
 
     // assert
     set.has(100).should.equal(true);
   });
 
-  it('ENTRIES - should return all of the entries in the set', () => {
+  it('VALUES/KEYS - should return an iterator that contains the values for each element in the Set', () => {
     // arrange
-    const names = ['Kevin', 'Kim', 'Chris', 'Kate'];
-    const set = new Set(names);
+    const set = new Set(arrayOfNumbers);
 
     // act
-    const entries = set.entries();
+    const keys = set.keys();
+    const firstKey = keys.next().value;
+    const values = set.values();
+    const firstValue = values.next().value;
 
     // assert
-    entries.size.should.equal(4);
+    firstKey.should.equal(1);
+    firstValue.should.equal(1);
   });
 });
