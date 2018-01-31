@@ -2,9 +2,11 @@
 
 describe('Set Tests', () => {
   let arrayOfNumbers;
+  let arrayOfNames;
 
   beforeEach(() => {
     arrayOfNumbers = [1, 2, 3, 5, 8, 13, 20, 40, 100];
+    arrayOfNames = ['Kevin', 'Kim', 'Chris', 'Kate'];
   });
 
   it('should contain zero items when constructed', () => {
@@ -71,8 +73,7 @@ describe('Set Tests', () => {
 
   it('ENTRIES - should return first value from set by calling .next().value', () => {
     // arrange
-    const names = ['Kevin', 'Kim', 'Chris', 'Kate'];
-    const set = new Set(names);
+    const set = new Set(arrayOfNames);
     const expectedFirstValue = ['Kevin', 'Kevin'];
 
     // act
@@ -83,7 +84,31 @@ describe('Set Tests', () => {
     firstValue.should.have.members(expectedFirstValue);
   });
 
-  // TODO:  forEach
+  it('FOREACH - should add each item in the Map to an array', () => {
+    // arrange
+    const set = new Set(arrayOfNames);
+
+    // act
+    const namesFromMap = [];
+    set.forEach((value) => {
+      namesFromMap.push(value);
+    });
+
+    // assert
+    namesFromMap.length.should.equal(4);
+    namesFromMap[0].should.equal('Kevin');
+  });
+
+  // it('FOR OF - should iterate through the Set', () => {
+  //   // arrange
+  //   const names = ['Kevin', 'Kim', 'Chris', 'Kate'];
+  //   const set = new Set(names);
+
+  //   // act
+  //   for (const item of set) {
+  //     console.log('item:', item);
+  //   }
+  // });
 
   it('HAS - should determine whether an item is present in the set', () => {
     // arrange & act
