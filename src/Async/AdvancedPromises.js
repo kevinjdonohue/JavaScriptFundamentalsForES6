@@ -1,34 +1,29 @@
 /* eslint-disable no-console */
-// class OrderManager {
-//   static getOrder() {
-//     // console.log('orderId: ', orderId);
-//     return Promise.resolve({ userId: 35 });
-//   }
+class OrderManager {
+  static getOrder() {
+    // console.log('orderId: ', orderId);
+    return Promise.resolve({ userId: 35 });
+  }
 
-//   static getUser() {
-//     // console.log('userId: ', userId);
-//     return Promise.resolve({ companyId: 18 });
-//   }
+  static getUser() {
+    // console.log('userId: ', userId);
+    return Promise.resolve({ companyId: 18 });
+  }
 
-//   static getCompany() {
-//     // console.log('companyId: ', companyId);
-//     return Promise.resolve({ name: 'PluralSight' });
-//   }
-// }
+  static getCompany() {
+    // console.log('companyId: ', companyId);
+    return Promise.resolve({ name: 'PluralSight' });
+  }
 
-// export default OrderManager;
+  static getCourse(courseId) {
+    const courses = {
+      1: { name: 'Introduction to Cobol' },
+      2: { name: 'Yet Another C# Course' },
+      3: { name: 'How to make billions by blogging' },
+    };
 
-export function getOrder() {
-  // console.log('orderId: ', orderId);
-  return Promise.resolve({ userId: 35 });
+    return Promise.resolve(courses[courseId]);
+  }
 }
 
-export function getUser() {
-  // console.log('userId: ', userId);
-  return Promise.resolve({ companyId: 18 });
-}
-
-export function getCompany() {
-  // console.log('companyId: ', companyId);
-  return Promise.resolve({ name: 'PluralSight' });
-}
+export default OrderManager;
