@@ -1,11 +1,11 @@
-// import { Employee, modelEmployee, log, defaultRaise } from './Modules';
-import * as Employees from './Modules';
+import { Emp as Employee, Scott as modelEmployee, logEmpName as log, raiseAmt as defaultRaise } from './Modules';
+// import * as Employees from './Modules';
 
 describe('Module Tests', () => {
   it('should execute doWork', () => {
     // arrange
     const name = 'Kevin';
-    const emp = new Employees.Employee(name);
+    const emp = new Employee(name);
 
     // act
     const message = emp.doWork();
@@ -27,7 +27,7 @@ describe('Module Tests', () => {
 
   it("should execute Scott's doWork", () => {
     // act
-    const message = Employees.modelEmployee.doWork();
+    const message = modelEmployee.doWork();
 
     // assert
     message.should.equal('Scott is working');
@@ -35,13 +35,13 @@ describe('Module Tests', () => {
 
   it('should log an employee name', () => {
     // act
-    Employees.log(Employees.modelEmployee);
+    log(modelEmployee);
   });
 
   it('should find default raise', () => {
     // arrange
     const expectedRaiseAmount = 0.03;
-    const actualRaiseAmount = Employees.defaultRaise;
+    const actualRaiseAmount = defaultRaise;
 
     // assert
     actualRaiseAmount.should.equal(expectedRaiseAmount);

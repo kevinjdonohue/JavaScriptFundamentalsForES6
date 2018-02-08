@@ -3,7 +3,7 @@
 const sName = Symbol('used for hiding name');
 
 // export a class
-export class Employee {
+class Employee {
   constructor(name) {
     this[sName] = name;
   }
@@ -18,12 +18,14 @@ export class Employee {
 }
 
 // export a function
-export const log = (employee) => {
+const log = (employee) => {
   console.log(employee.name);
 };
 
 // export a constant
-export const defaultRaise = 0.03;
+const defaultRaise = 0.03;
 
 // export an object - class instance
-export const modelEmployee = new Employee('Scott');
+const modelEmployee = new Employee('Scott');
+
+export { Employee as Emp, log as logEmpName, defaultRaise as raiseAmt, modelEmployee as Scott };
