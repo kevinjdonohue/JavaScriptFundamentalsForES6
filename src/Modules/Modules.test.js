@@ -16,13 +16,13 @@ describe('Module Tests', () => {
 
   it('should retrieve name', () => {
     // arrange
-    const emp = new Employees.Employee('Scott');
+    const emp = new Employee('Scott');
 
     // act
     const firstName = emp.name;
 
     // assert
-    firstName.should.equal('Scot');
+    firstName.should.equal('Scott');
   });
 
   it("should execute Scott's doWork", () => {
