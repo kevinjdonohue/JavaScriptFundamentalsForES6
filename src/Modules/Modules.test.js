@@ -14,6 +14,17 @@ describe('Module Tests', () => {
     message.should.equal(`${name} is working`);
   });
 
+  it('should retrieve name', () => {
+    // arrange
+    const emp = new Employees.Employee('Scott');
+
+    // act
+    const firstName = emp.name;
+
+    // assert
+    firstName.should.equal('Scot');
+  });
+
   it("should execute Scott's doWork", () => {
     // act
     const message = Employees.modelEmployee.doWork();

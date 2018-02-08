@@ -1,13 +1,15 @@
 /* eslint-disable no-console */
 
+const sName = Symbol('used for hiding name');
+
 // export a class
 export class Employee {
   constructor(name) {
-    this._name = name;
+    this[sName] = name;
   }
 
   get name() {
-    return this._name;
+    return this[sName];
   }
 
   doWork() {
